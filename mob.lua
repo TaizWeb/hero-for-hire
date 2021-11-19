@@ -4,12 +4,13 @@ do
   local _parent_0 = Entity
   local _base_0 = {
     name = "mob",
-    x = 200,
-    y = 200,
     direction = "",
     remainingSteps = 0,
     speed = 1,
     behavior = function(self)
+      return self:step()
+    end,
+    step = function(self)
       if self.remainingSteps == 0 then
         if math.random(120) == 1 then
           self.dx, self.dy = 0

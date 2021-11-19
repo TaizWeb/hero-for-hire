@@ -3,12 +3,12 @@ export Mob
 
 class Mob extends Entity
 	name: "mob"
-	x: 200
-	y: 200
 	direction: ""
 	remainingSteps: 0
 	speed: 1
 	behavior: =>
+		@step!
+	step: =>
 		-- Okay, so you can't do !(@foo) without the compiler loosing it's mind
 		if @remainingSteps == 0 -- If the entity is not moving...
 			if math.random(120) == 1 -- Move once every ~2 seconds
@@ -18,6 +18,7 @@ class Mob extends Entity
 		else
 			@remainingSteps -= 1
 			@updatePosition!
+
 	wander: (direction) =>
 		@remainingSteps = 40
 		switch direction
