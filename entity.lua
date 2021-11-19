@@ -8,6 +8,7 @@ do
     width = 25,
     height = 25,
     speed = 8,
+    facing = "south",
     draw = function(self)
       love.graphics.setColor(1, 0, 0, 1)
       return love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
@@ -19,7 +20,10 @@ do
   }
   _base_0.__index = _base_0
   _class_0 = setmetatable({
-    __init = function() end,
+    __init = function(self, x, y)
+      self.x = x
+      self.y = y
+    end,
     __base = _base_0,
     __name = "Entity"
   }, {
